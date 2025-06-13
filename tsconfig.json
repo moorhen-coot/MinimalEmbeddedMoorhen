@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "outDir": "tsDist",
+        "module": "es6",
+        "target": "es6",
+        "rootDir": "./",
+        "lib": ["ESNext.Array", "esnext", "es6", "dom", "dom.Iterable", "es2017", "WebWorker"],
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "sourceMap": true,
+        "moduleResolution": "node"
+      },
+      "include": [
+        "src/*"
+      ]
+}
