@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, addMolecule, addMap, setActiveMap, MoorhenReduxStore } from 'moorhen'
+import { useRef, useEffect } from 'react';
+import { MoorhenContainer, MoorhenMolecule, MoorhenMap, addMolecule, addMap, setActiveMap, MoorhenReduxStore, setHeight, setWidth } from 'moorhen'
 import { moorhen } from 'moorhen/types/moorhen';
 import { Button } from '@mui/material';
 import { Provider, useDispatch, useSelector } from 'react-redux';
@@ -28,9 +28,25 @@ export const WrappedMoorhen = () =>  {
         lastHoveredAtom, prevActiveMoleculeRef
     }
 
-    const onClick = () => {
-        loadData("5a3h")
+    const setWindowDimensions = () => {
+        dispatch(setHeight(600))
+        dispatch(setWidth(600))
     }
+
+    const onClick = (pdbCode: string) => {
+        loadData(pdbCode)
+    }
+
+    useEffect(() => {
+        setWindowDimensions()
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('resize', setWindowDimensions)
+        return () => {
+            window.removeEventListener('resize', setWindowDimensions)
+        }
+    }, [setWindowDimensions])
 
     const fetchMolecule = async (url: string, molName: string) => {
         const newMolecule = new MoorhenMolecule(commandCentre, glRef, MoorhenReduxStore, monomerLibraryPath)
@@ -72,8 +88,9 @@ export const WrappedMoorhen = () =>  {
     }
 
     return <>
-            <Button onClick={onClick}>Click</Button>
-               
+            <Button onClick={() => onClick("5a3h")}>5a3h</Button>
+            <Button onClick={() => onClick("4dfr")}>4dfr</Button>
+            <Button onClick={() => onClick("5vof")}>5vof</Button>
                <MoorhenContainer {...collectedProps}/>
            </>
 
