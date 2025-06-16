@@ -1,6 +1,6 @@
 import { WrappedMoorhen } from './WrappedMoorhen';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, addMolecule, addMap, setActiveMap, MoorhenReduxStore } from 'moorhen'
+import { Provider } from 'react-redux';
+import { MoorhenReduxStore } from 'moorhen'
 
 import './App.css'
 
