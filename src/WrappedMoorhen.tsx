@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react';
-import { MoorhenContainer, MoorhenMolecule, MoorhenMap, addMolecule, addMap, setActiveMap, MoorhenReduxStore, setHeight, setWidth } from 'moorhen'
+import { useRef } from 'react';
+import { MoorhenContainer, MoorhenMolecule, MoorhenMap, addMolecule, addMap, setActiveMap, MoorhenReduxStore } from 'moorhen'
 import { moorhen } from 'moorhen/types/moorhen';
 import { Button } from '@mui/material';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const WrappedMoorhen = () =>  {
 
