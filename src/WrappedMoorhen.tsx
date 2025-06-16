@@ -28,25 +28,13 @@ export const WrappedMoorhen = () =>  {
         lastHoveredAtom, prevActiveMoleculeRef
     }
 
-    const setWindowDimensions = () => {
-        dispatch(setHeight(600))
-        dispatch(setWidth(600))
+    const setDimensions = () => {
+        return [600,600]
     }
 
     const onClick = (pdbCode: string) => {
         loadData(pdbCode)
     }
-
-    useEffect(() => {
-        setWindowDimensions()
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('resize', setWindowDimensions)
-        return () => {
-            window.removeEventListener('resize', setWindowDimensions)
-        }
-    }, [setWindowDimensions])
 
     const fetchMolecule = async (url: string, molName: string) => {
         const newMolecule = new MoorhenMolecule(commandCentre, glRef, MoorhenReduxStore, monomerLibraryPath)
@@ -91,7 +79,7 @@ export const WrappedMoorhen = () =>  {
             <Button onClick={() => onClick("5a3h")}>5a3h</Button>
             <Button onClick={() => onClick("4dfr")}>4dfr</Button>
             <Button onClick={() => onClick("5vof")}>5vof</Button>
-               <MoorhenContainer {...collectedProps}/>
+               <MoorhenContainer setMoorhenDimensions={setDimensions} {...collectedProps}/>
            </>
 
 }
