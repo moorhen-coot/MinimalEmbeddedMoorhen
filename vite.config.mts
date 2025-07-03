@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import crossOriginIsolation from 'vite-plugin-cross-origin-isolation'
-import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
 import checker from 'vite-plugin-checker';
 
@@ -15,7 +14,6 @@ export default defineConfig({
     },
     plugins: [
         react(),
-        wasm(),
         topLevelAwait(),
         crossOriginIsolation(),
         checker({ typescript: {
