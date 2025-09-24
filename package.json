@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.14.1",
-    "moorhen": "^0.22.0-beta.4",
+    "moorhen": "^0.22.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0"
